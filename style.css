@@ -1,0 +1,458 @@
+/* ==========================================================================
+   CV ONLINE STYLESHEET
+   Phong cách chuẩn bám sát mẫu CV MindLuster
+   ========================================================================== */
+
+:root {
+    --cv-bg-outer: #f0f2f5;
+    --cv-dark: #222323;
+    --cv-yellow: #ffc800;
+    --cv-yellow-border: #fec802;
+    --cv-blue: #3190e2;
+    --cv-blue-brand: #2371b5;
+    --cv-gray-contact: #5f5f5f;
+    --cv-gray-lang: #404040;
+    --cv-heading-gray: #505050;
+    --cv-text-body: #424242;
+    --cv-font: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--cv-bg-outer);
+    font-family: var(--cv-font);
+    color: var(--cv-text-body);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   Top Action Bar (Thanh công cụ in ấn / tải xuống)
+   -------------------------------------------------------------------------- */
+.top-action-bar {
+    padding: 15px 0 5px;
+}
+
+.btn-cv-action {
+    background-color: #4d5c7d;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: all 0.25s ease-in-out;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-cv-action:hover {
+    background-color: #354465;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* --------------------------------------------------------------------------
+   CV Wrapper & Layout Khổ giấy
+   -------------------------------------------------------------------------- */
+.cv-wrapper {
+    max-width: 980px;
+    margin: 0 auto 50px auto;
+    padding: 0 15px;
+}
+
+.cv-paper {
+    background-color: #ffffff;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Phần 1: Top Header (Avatar & Bản tóm tắt)
+   -------------------------------------------------------------------------- */
+.cv-top-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.person-cover {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto;
+    border: 5px solid #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    overflow: hidden;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.summary-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: #304354;
+    border-bottom: 4px solid var(--cv-blue);
+    display: inline-block;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+.summary-text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #333333;
+    text-align: justify;
+}
+
+/* --------------------------------------------------------------------------
+   Phần 2: Name Bar (Thanh chức danh & Tên)
+   -------------------------------------------------------------------------- */
+.name-bar {
+    background-color: var(--cv-yellow);
+    width: 100%;
+}
+
+.job-header {
+    background-color: var(--cv-dark);
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 18px 30px;
+    white-space: nowrap;
+    border-right: 4px solid var(--cv-yellow);
+}
+
+.name-box {
+    padding: 16px 30px;
+}
+
+.name-text {
+    color: var(--cv-dark);
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   Phần 3: Cột Trái (Sidebar màu tối)
+   -------------------------------------------------------------------------- */
+.cv-sidebar {
+    background-color: var(--cv-dark);
+    border-right: 2px solid #b0bdca;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-block {
+    padding: 24px;
+}
+
+.block-contacts {
+    background-color: var(--cv-gray-contact);
+}
+
+.block-languages {
+    background-color: var(--cv-gray-lang);
+}
+
+.block-tech-skills,
+.block-soft-skills {
+    background-color: var(--cv-dark);
+}
+
+.sidebar-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 4px solid var(--cv-yellow-border);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 18px;
+    line-height: 1.2;
+}
+
+/* Danh sách liên hệ */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #ffffff;
+}
+
+.contact-icon {
+    width: 26px;
+    font-size: 16px;
+    color: var(--cv-yellow-border);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.contact-value {
+    flex-grow: 1;
+    word-break: break-word;
+}
+
+.contact-value a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-value a:hover {
+    color: var(--cv-yellow-border);
+    text-decoration: underline;
+}
+
+/* Danh sách kỹ năng & ngôn ngữ */
+.simple-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.simple-list li {
+    margin-bottom: 10px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: #f5f5f5;
+}
+
+/* --------------------------------------------------------------------------
+   Phần 4: Cột Phải (Nội dung chính)
+   -------------------------------------------------------------------------- */
+.cv-main-content {
+    background-color: #ffffff;
+    padding: 30px 35px;
+}
+
+.main-section {
+    margin-bottom: 10px;
+}
+
+.section-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cv-heading-gray);
+    border-bottom: 4px solid var(--cv-blue);
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+}
+
+.section-heading i {
+    color: var(--cv-blue);
+    margin-right: 6px;
+}
+
+.job-item {
+    margin-bottom: 20px;
+}
+
+.job-title {
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cv-dark);
+    margin-bottom: 6px;
+}
+
+.company-name {
+    color: var(--cv-blue-brand);
+    font-weight: 700;
+    font-size: 15.5px;
+}
+
+.job-date {
+    color: #585858;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.job-details {
+    font-size: 14.5px;
+    color: var(--cv-text-body);
+    line-height: 1.65;
+    margin-top: 10px;
+}
+
+.detail-paragraph {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.detail-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.section-divider {
+    border-top: 1px solid #dcdcdc;
+    margin: 25px 0;
+    opacity: 0.7;
+}
+
+/* Học vấn */
+.gpa-text {
+    font-size: 15px;
+    color: #222323;
+}
+
+.course-group {
+    margin-top: 8px;
+}
+
+.course-heading {
+    display: block;
+    color: #333333;
+    margin-bottom: 4px;
+}
+
+.course-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.course-list li {
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+/* Sở thích */
+.interest-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.interest-card i {
+    color: var(--cv-blue);
+    flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries (Điện thoại & Máy tính bảng)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .cv-wrapper {
+        padding: 0 8px;
+        margin-bottom: 30px;
+    }
+
+    .person-cover {
+        margin-top: 10px;
+    }
+
+    .job-header {
+        border-right: none;
+        border-bottom: 3px solid var(--cv-yellow);
+        text-align: center;
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: 18px;
+    }
+
+    .name-box {
+        text-align: center;
+        justify-content: center;
+        padding: 12px 20px;
+    }
+
+    .name-text {
+        font-size: 22px;
+    }
+
+    .cv-sidebar {
+        border-right: none;
+        border-bottom: 2px solid #b0bdca;
+    }
+
+    .cv-main-content {
+        padding: 24px 20px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Chế độ In ấn (Print Styles - Xuất file PDF chuẩn A4 đẹp mắt)
+   -------------------------------------------------------------------------- */
+@media print {
+    body {
+        background: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .cv-wrapper {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .cv-paper {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    .cv-body-row {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .cv-sidebar {
+        width: 33.333333% !important;
+        float: left !important;
+        border-right: 2px solid #b0bdca !important;
+    }
+
+    .cv-main-content {
+        width: 66.666667% !important;
+        float: left !important;
+    }
+
+    .name-bar {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .job-header {
+        width: 35% !important;
+    }
+
+    .name-box {
+        width: 65% !important;
+    }
+
+    @page {
+        size: A4 portrait;
+        margin: 8mm 5mm;
+    }
+}
