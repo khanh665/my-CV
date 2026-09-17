@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Và Ngọc Khánh - Sinh viên công nghệ thông tin | CV Online</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Thanh công cụ phía trên (Ẩn khi in ấn) -->
+<div class="top-action-bar text-center my-3 no-print">
+    <button class="btn btn-cv-action me-2" onclick="window.print()">
+        <i class="fas fa-file-pdf me-1"></i> In CV / Lưu PDF
+        <i class="fas fa-download ms-2"></i>
+    </button>
+    <a class="btn btn-cv-action" href="images/avatar.png" target="_blank" download="avatar.png">
+        <i class="fas fa-image me-1"></i> Tải ảnh đại diện
+        <i class="fas fa-download ms-2"></i>
+    </a>
+</div>
+
+<!-- Khung chứa CV chính -->
+<div class="cv-wrapper">
+    <div class="cv-paper shadow-sm">
+        
+        <!-- PHẦN 1: HEADER TRÊN CÙNG (AVATAR & BẢN TÓM TẮT) -->
+        <div class="cv-top-header">
+            <div class="row g-0 align-items-center">
+                <!-- Avatar bên trái -->
+                <div class="col-md-3 col-12 text-center py-3">
+                    <div class="person-cover">
+                        <img src="images/avatar.png" alt="Và Ngọc Khánh" class="person-img">
+                    </div>
+                </div>
+                
+                <!-- Bản tóm tắt bên phải -->
+                <div class="col-md-9 col-12 p-4">
+                    <div class="summary-heading">Bản tóm tắt</div>
+                    <div class="summary-text mt-2">
+                        Sinh viên năm cuối ngành CNTT đam mê phát triển hệ thống web, có kỹ năng thực hành tốt với PHP, JavaScript và cơ sở dữ liệu MySQL. Mục tiêu trở thành Thực tập sinh Lập trình để đóng góp vào việc xây dựng, tối ưu hóa các tính năng phần mềm thực tế và tìm kiếm cơ hội thực tập phát triển web để đồng hành cùng các dự án của doanh nghiệp, tối ưu hóa sản phẩm và trau dồi kỹ năng lập trình chuyên sâu, phát triển bản thân thành kỹ sư phần mềm vững tay nghề.                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHẦN 2: THANH TÊN & CHỨC DANH (NAME BAR VÀNG - ĐEN) -->
+        <div class="name-bar d-flex flex-column flex-md-row align-items-stretch">
+            <div class="job-header d-flex align-items-center">
+                Sinh viên công nghệ thông tin            </div>
+            <div class="name-box d-flex align-items-center flex-grow-1">
+                <span class="name-text">Và Ngọc Khánh</span>
+            </div>
+        </div>
+
+        <!-- PHẦN 3: THÂN CV CHIA 2 CỘT -->
+        <div class="row g-0 cv-body-row">
+            
+            <!-- CỘT TRÁI (SIDEBAR MÀU TỐI) -->
+            <div class="col-md-4 col-12 cv-sidebar">
+                
+                <!-- Mục Liên hệ (Nền xám #5f5f5f) -->
+                <div class="sidebar-block block-contacts">
+                    <h3 class="sidebar-heading">Liên hệ</h3>
+                    <ul class="contact-list">
+                                                    <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-value">
+                                                                            <a href="tel:0385941772">
+                                            0385941772                                        </a>
+                                                                    </div>
+                            </li>
+                                                    <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                </div>
+                                <div class="contact-value">
+                                                                            <a href="mailto:khanhva92@gmail.com">
+                                            khanhva92@gmail.com                                        </a>
+                                                                    </div>
+                            </li>
+                                                    <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-value">
+                                                                            <span>Sơn La</span>
+                                                                    </div>
+                            </li>
+                                                    <li>
+                                <div class="contact-icon">
+                                    <i class="far fa-calendar-alt"></i>
+                                </div>
+                                <div class="contact-value">
+                                                                            <span>2005-06-06</span>
+                                                                    </div>
+                            </li>
+                                                    <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-globe-americas"></i>
+                                </div>
+                                <div class="contact-value">
+                                                                            <span>Việt Nam</span>
+                                                                    </div>
+                            </li>
+                                            </ul>
+                </div>
+
+                <!-- Mục Ngôn ngữ (Nền xám đậm #404040) -->
+                <div class="sidebar-block block-languages">
+                    <h3 class="sidebar-heading">Ngôn ngữ</h3>
+                    <ul class="simple-list">
+                                                    <li>- Tiếng Việt</li>
+                                                    <li>- Tiếng Anh - Cơ bản / Giao tiếp cơ bản</li>
+                                                    <li>- Tiếng Mông</li>
+                                            </ul>
+                </div>
+
+                <!-- Mục Kỹ năng chuyên môn (Nền đen #222323) -->
+                <div class="sidebar-block block-tech-skills">
+                    <h3 class="sidebar-heading">Kỹ năng chuyên môn</h3>
+                    <ul class="simple-list">
+                                                    <li>- Ngôn ngữ lập trình: PHP, JavaScript, C#, Java, C/C++</li>
+                                                    <li>- Phát triển Web &amp; Frontend: HTML5, CSS3, Bootstrap, Thiết kế Web tương thích (Responsive Design)</li>
+                                                    <li>- Cơ sở dữ liệu: MySQL, SQL Server (Thiết kế bảng, viết truy vấn, tối ưu hóa CSDL)</li>
+                                                    <li>- Mạng: TCP/IP</li>
+                                                    <li>- Mạng &amp; Hệ thống: GitHub, XAMPP, Visual Studio Code</li>
+                                            </ul>
+                </div>
+
+                <!-- Mục Kỹ năng mềm (Nền đen #222323) -->
+                <div class="sidebar-block block-soft-skills">
+                    <h3 class="sidebar-heading">Kỹ năng mềm</h3>
+                    <ul class="simple-list">
+                                                    <li>- Làm việc nhóm</li>
+                                                    <li>- Sáng tạo</li>
+                                                    <li>- Khả năng thích ứng</li>
+                                                    <li>- Quản lý thời gian</li>
+                                            </ul>
+                </div>
+
+            </div>
+
+            <!-- CỘT PHẢI (NỘI DUNG CHÍNH NỀN TRẮNG) -->
+            <div class="col-md-8 col-12 cv-main-content">
+                
+                <!-- KINH NGHIỆM / DỰ ÁN -->
+                <section class="main-section">
+                    <div class="section-heading">
+                        <i class="fas fa-briefcase"></i> Kinh nghiệm / Dự án
+                    </div>
+
+                                            <div class="job-item">
+                            <div class="job-title">
+                                Lập trình viên Web (Full-stack)                            </div>
+                            <div class="job-meta d-flex flex-wrap justify-content-between align-items-center mb-2">
+                                <span class="company-name">Dự án cá nhân - Website Bán Nông Sản Sơn La</span>
+                                <span class="job-date">2025-08 : 2026-09</span>
+                            </div>
+                            <div class="job-details">
+                                                                    <p class="detail-paragraph">Thiết kế và phát triển website thương mại điện tử chuyên giới thiệu, tiêu thụ nông sản và đặc sản Sơn La (mận hậu Mộc Châu, xoài Yên Châu, nhãn Sông Mã, chè, thịt gác bếp,...).</p>
+                                                                    <p class="detail-paragraph">Phân tích, chuẩn hóa cơ sở dữ liệu quan hệ (MySQL) quản lý danh mục đặc sản theo mùa vụ, dữ liệu người dùng và đơn đặt hàng.</p>
+                                                                    <p class="detail-paragraph">Xây dựng các chức năng cốt lõi: tìm kiếm, lọc nông sản theo phân loại/giá, giỏ hàng trực tuyến và trang quản trị (Admin Dashboard) theo dõi đơn hàng, quản lý kho.</p>
+                                                                    <p class="detail-paragraph">Triển khai bảo mật hệ thống: sử dụng PHP Data Objects (PDO) với Prepared Statements để ngăn chặn triệt để lỗ hổng SQL Injection; áp dụng cơ chế băm mật khẩu an toàn (Bcrypt/Argon2) và xác thực, phân quyền người dùng qua JWT (JSON Web Tokens) / Session bảo mật.</p>
+                                                                    <p class="detail-paragraph">Thiết kế giao diện Responsive tương thích mượt mà trên cả máy tính và thiết bị di động.</p>
+                                                                    <p class="detail-paragraph">Công nghệ sử dụng: PHP, MySQL, JavaScript, HTML5, CSS3, Bootstrap, XAMPP, PDO, JWT.</p>
+                                                            </div>
+                        </div>
+                                    </section>
+
+                <hr class="section-divider">
+
+                <!-- HỌC VẤN -->
+                <section class="main-section">
+                    <div class="section-heading">
+                        <i class="fas fa-graduation-cap"></i> Học vấn
+                    </div>
+
+                                            <div class="job-item">
+                            <div class="job-title">
+                                Khoa học tự nhiên - Công nghệ                            </div>
+                            <div class="job-meta d-flex flex-wrap justify-content-between align-items-center mb-2">
+                                <span class="company-name">Trường Đại học Tây Bắc</span>
+                                <span class="job-date">2023-08 : 2027-08</span>
+                            </div>
+                            <div class="job-details">
+                                <p class="gpa-text fw-bold text-dark mb-2">GPA: 2.89/4.0 (7.52/10) – Xếp loại Khá</p>
+                                
+                                <div class="course-group mb-2">
+                                    <span class="course-heading fw-bold">Các môn chuyên ngành nổi bật:</span>
+                                    <ul class="course-list">
+                                                                                    <li>Lập trình ứng dụng Web</li>
+                                                                                    <li>Hệ quản trị Cơ sở dữ liệu</li>
+                                                                                    <li>Lập trình mạng</li>
+                                                                                    <li>Nguyên lý hệ điều hành</li>
+                                                                                    <li>Hệ điều hành Linux</li>
+                                                                                    <li>Thương mại điện tử</li>
+                                                                            </ul>
+                                </div>
+
+                                <div class="course-group">
+                                    <span class="course-heading fw-bold">Các môn nền tảng:</span>
+                                    <ul class="course-list">
+                                                                                    <li>Cấu trúc dữ liệu &amp; Giải thuật</li>
+                                                                                    <li>Thiết kế Web</li>
+                                                                                    <li>Cơ sở dữ liệu</li>
+                                                                                    <li>Lập trình hướng đối tượng (OOP)</li>
+                                                                                    <li>Lập trình .NET</li>
+                                                                                    <li>Lập trình di động</li>
+                                                                                    <li>Trí tuệ nhân tạo</li>
+                                                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+                                    </section>
+
+                <hr class="section-divider">
+
+                <!-- SỞ THÍCH -->
+                <section class="main-section">
+                    <div class="section-heading">
+                        <i class="fas fa-stream"></i> Sở thích
+                    </div>
+
+                    <div class="interests-grid row g-2">
+                                                    <div class="col-md-4 col-sm-6 col-12">
+                                <div class="interest-card">
+                                    <i class="fas fa-check-circle me-1 text-primary"></i>
+                                    <span>Nghe nhạc</span>
+                                </div>
+                            </div>
+                                                    <div class="col-md-4 col-sm-6 col-12">
+                                <div class="interest-card">
+                                    <i class="fas fa-check-circle me-1 text-primary"></i>
+                                    <span>Thể thao</span>
+                                </div>
+                            </div>
+                                                    <div class="col-md-4 col-sm-6 col-12">
+                                <div class="interest-card">
+                                    <i class="fas fa-check-circle me-1 text-primary"></i>
+                                    <span>Tìm hiểu công nghệ mới, khám phá các công cụ hỗ trợ lập trình</span>
+                                </div>
+                            </div>
+                                            </div>
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+    <!-- Bootstrap 5 Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
