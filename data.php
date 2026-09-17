@@ -59,7 +59,6 @@ $cv = [
         'Ngôn ngữ lập trình: PHP, JavaScript, C#, Java, C/C++',
         'Phát triển Web & Frontend: HTML5, CSS3, Bootstrap, Thiết kế Web tương thích (Responsive Design)',
         'Cơ sở dữ liệu: MySQL, SQL Server (Thiết kế bảng, viết truy vấn, tối ưu hóa CSDL)',
-        'Mạng: TCP/IP',
         'Mạng & Hệ thống: GitHub, XAMPP, Visual Studio Code'
     ],
 
