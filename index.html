@@ -21,28 +21,38 @@
 </head>
 <body>
 
-<!-- Thanh công cụ phía trên (Ẩn khi in ấn) -->
+<!-- Thanh công cụ phía trên (Ẩn hoàn toàn khi in ấn) -->
 <div class="top-action-bar text-center my-3 no-print">
-    <button class="btn btn-cv-action me-2" onclick="window.print()">
-        <i class="fas fa-file-pdf me-1"></i> In CV / Lưu PDF
-        <i class="fas fa-download ms-2"></i>
-    </button>
-    <a class="btn btn-cv-action" href="images/avatar.png" target="_blank" download="avatar.png">
-        <i class="fas fa-image me-1"></i> Tải ảnh đại diện
-        <i class="fas fa-download ms-2"></i>
-    </a>
+    <div class="action-bar-inner">
+        <button class="btn btn-cv-action btn-cv-primary" onclick="window.print()" title="In hoặc lưu file PDF khổ A4">
+            <i class="fas fa-file-pdf me-1 text-warning"></i> In CV / Lưu PDF
+            <i class="fas fa-download ms-2"></i>
+        </button>
+        <button class="btn btn-cv-action" onclick="copyText('khanhva92@gmail.com', 'Đã sao chép Email vào bộ nhớ tạm!')" title="Nhấp để chép Email">
+            <i class="fas fa-copy me-1 text-primary"></i> Sao chép Email
+        </button>
+        <a class="btn btn-cv-action" href="images/avatar.png" target="_blank" download="avatar.png" title="Tải ảnh chân dung">
+            <i class="fas fa-image me-1 text-secondary"></i> Tải ảnh
+        </a>
+    </div>
+</div>
+
+<!-- Toast thông báo nhỏ gọn khi sao chép -->
+<div id="copyToast" class="copy-toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMsg">Đã sao chép thành công!</span>
 </div>
 
 <!-- Khung chứa CV chính -->
 <div class="cv-wrapper">
-    <div class="cv-paper shadow-sm">
+    <div class="cv-paper">
         
         <!-- PHẦN 1: HEADER TRÊN CÙNG (AVATAR & BẢN TÓM TẮT) -->
         <div class="cv-top-header">
             <div class="row g-0 align-items-center">
                 <!-- Avatar bên trái -->
                 <div class="col-md-3 col-12 text-center py-3">
-                    <div class="person-cover">
+                    <div class="person-cover" title="Ảnh đại diện">
                         <img src="images/avatar.png" alt="Và Ngọc Khánh" class="person-img">
                     </div>
                 </div>
@@ -68,89 +78,140 @@
         <!-- PHẦN 3: THÂN CV CHIA 2 CỘT -->
         <div class="row g-0 cv-body-row">
             
-            <!-- CỘT TRÁI (SIDEBAR MÀU TỐI) -->
+            <!-- CỘT TRÁI (SIDEBAR MÀU TỐI LIỀN MẠCH) -->
             <div class="col-md-4 col-12 cv-sidebar">
                 
-                <!-- Mục Liên hệ (Nền xám #5f5f5f) -->
-                <div class="sidebar-block block-contacts">
+                <!-- Mục Liên hệ -->
+                <div class="sidebar-block">
                     <h3 class="sidebar-heading">Liên hệ</h3>
                     <ul class="contact-list">
-                                                    <li>
+                                                                                <li class="contact-item clickable" 
+                                                                    onclick="copyText('0385941772', 'Đã sao chép Số điện thoại!')"
+                                    title="Nhấp để sao chép Số điện thoại"
+                                >
                                 <div class="contact-icon">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div class="contact-value">
-                                                                            <a href="tel:0385941772">
+                                                                            <a href="tel:0385941772" onclick="event.stopPropagation()">
                                             0385941772                                        </a>
+                                                                                                                <span class="contact-copy-badge"><i class="fas fa-copy"></i></span>
                                                                     </div>
                             </li>
-                                                    <li>
+                                                                                <li class="contact-item clickable" 
+                                                                    onclick="copyText('khanhva92@gmail.com', 'Đã sao chép Email!')"
+                                    title="Nhấp để sao chép Email"
+                                >
                                 <div class="contact-icon">
                                     <i class="fas fa-envelope-open-text"></i>
                                 </div>
                                 <div class="contact-value">
-                                                                            <a href="mailto:khanhva92@gmail.com">
+                                                                            <a href="mailto:khanhva92@gmail.com" onclick="event.stopPropagation()">
                                             khanhva92@gmail.com                                        </a>
+                                                                                                                <span class="contact-copy-badge"><i class="fas fa-copy"></i></span>
                                                                     </div>
                             </li>
-                                                    <li>
+                                                                                <li class="contact-item " 
+                                >
                                 <div class="contact-icon">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="contact-value">
                                                                             <span>Sơn La</span>
-                                                                    </div>
+                                                                                                        </div>
                             </li>
-                                                    <li>
+                                                                                <li class="contact-item " 
+                                >
                                 <div class="contact-icon">
                                     <i class="far fa-calendar-alt"></i>
                                 </div>
                                 <div class="contact-value">
                                                                             <span>2005-06-06</span>
-                                                                    </div>
+                                                                                                        </div>
                             </li>
-                                                    <li>
+                                                                                <li class="contact-item " 
+                                >
                                 <div class="contact-icon">
                                     <i class="fas fa-globe-americas"></i>
                                 </div>
                                 <div class="contact-value">
                                                                             <span>Việt Nam</span>
-                                                                    </div>
+                                                                                                        </div>
                             </li>
                                             </ul>
                 </div>
 
-                <!-- Mục Ngôn ngữ (Nền xám đậm #404040) -->
-                <div class="sidebar-block block-languages">
+                <!-- Mục Ngôn ngữ -->
+                <div class="sidebar-block">
                     <h3 class="sidebar-heading">Ngôn ngữ</h3>
-                    <ul class="simple-list">
-                                                    <li>- Tiếng Việt</li>
-                                                    <li>- Tiếng Anh - Cơ bản / Giao tiếp cơ bản</li>
-                                                    <li>- Tiếng Mông</li>
-                                            </ul>
+                    <div class="d-flex flex-wrap">
+                                                    <span class="soft-skill-chip">
+                                <i class="fas fa-check"></i> Tiếng Việt                            </span>
+                                                    <span class="soft-skill-chip">
+                                <i class="fas fa-check"></i> Tiếng Anh - Cơ bản / Giao tiếp cơ bản                            </span>
+                                                    <span class="soft-skill-chip">
+                                <i class="fas fa-check"></i> Tiếng Mông                            </span>
+                                            </div>
                 </div>
 
-                <!-- Mục Kỹ năng chuyên môn (Nền đen #222323) -->
-                <div class="sidebar-block block-tech-skills">
+                <!-- Mục Kỹ năng chuyên môn (Dạng Chip/Badge trung tính) -->
+                <div class="sidebar-block">
                     <h3 class="sidebar-heading">Kỹ năng chuyên môn</h3>
-                    <ul class="simple-list">
-                                                    <li>- Ngôn ngữ lập trình: PHP, JavaScript, C#, Java, C/C++</li>
-                                                    <li>- Phát triển Web &amp; Frontend: HTML5, CSS3, Bootstrap, Thiết kế Web tương thích (Responsive Design)</li>
-                                                    <li>- Cơ sở dữ liệu: MySQL, SQL Server (Thiết kế bảng, viết truy vấn, tối ưu hóa CSDL)</li>
-                                                    <li>- Mạng: TCP/IP</li>
-                                                    <li>- Mạng &amp; Hệ thống: GitHub, XAMPP, Visual Studio Code</li>
-                                            </ul>
-                </div>
+                                            <div class="skill-category">
+                                                                                        <span class="skill-cat-label">Ngôn ngữ lập trình:</span>
+                                                        <div class="skill-badge-container">
+                                                                                                            <span class="skill-chip">PHP</span>
+                                                                                                                                                <span class="skill-chip">JavaScript</span>
+                                                                                                                                                <span class="skill-chip">C#</span>
+                                                                                                                                                <span class="skill-chip">Java</span>
+                                                                                                                                                <span class="skill-chip">C/C++</span>
+                                                                                                </div>
+                        </div>
+                                            <div class="skill-category">
+                                                                                        <span class="skill-cat-label">Phát triển Web &amp; Frontend:</span>
+                                                        <div class="skill-badge-container">
+                                                                                                            <span class="skill-chip">HTML5</span>
+                                                                                                                                                <span class="skill-chip">CSS3</span>
+                                                                                                                                                <span class="skill-chip">Bootstrap</span>
+                                                                                                                                                <span class="skill-chip">Thiết kế Web tương thích (Responsive Design)</span>
+                                                                                                </div>
+                        </div>
+                                            <div class="skill-category">
+                                                                                        <span class="skill-cat-label">Cơ sở dữ liệu:</span>
+                                                        <div class="skill-badge-container">
+                                                                                                            <span class="skill-chip">MySQL</span>
+                                                                                                                                                <span class="skill-chip">SQL Server (Thiết kế bảng, viết truy vấn, tối ưu hóa CSDL)</span>
+                                                                                                </div>
+                        </div>
+                                            <div class="skill-category">
+                                                                                        <span class="skill-cat-label">Mạng:</span>
+                                                        <div class="skill-badge-container">
+                                                                                                            <span class="skill-chip">TCP/IP</span>
+                                                                                                </div>
+                        </div>
+                                            <div class="skill-category">
+                                                                                        <span class="skill-cat-label">Mạng &amp; Hệ thống:</span>
+                                                        <div class="skill-badge-container">
+                                                                                                            <span class="skill-chip">GitHub</span>
+                                                                                                                                                <span class="skill-chip">XAMPP</span>
+                                                                                                                                                <span class="skill-chip">Visual Studio Code</span>
+                                                                                                </div>
+                        </div>
+                                    </div>
 
-                <!-- Mục Kỹ năng mềm (Nền đen #222323) -->
-                <div class="sidebar-block block-soft-skills">
+                <!-- Mục Kỹ năng mềm -->
+                <div class="sidebar-block">
                     <h3 class="sidebar-heading">Kỹ năng mềm</h3>
-                    <ul class="simple-list">
-                                                    <li>- Làm việc nhóm</li>
-                                                    <li>- Sáng tạo</li>
-                                                    <li>- Khả năng thích ứng</li>
-                                                    <li>- Quản lý thời gian</li>
-                                            </ul>
+                    <div class="d-flex flex-wrap">
+                                                    <span class="soft-skill-chip">
+                                <i class="fas fa-check"></i> Làm việc nhóm                            </span>
+                                                    <span class="soft-skill-chip">
+                                <i class="fas fa-check"></i> Sáng tạo                            </span>
+                                                    <span class="soft-skill-chip">
+                                <i class="fas fa-check"></i> Khả năng thích ứng                            </span>
+                                                    <span class="soft-skill-chip">
+                                <i class="fas fa-check"></i> Quản lý thời gian                            </span>
+                                            </div>
                 </div>
 
             </div>
@@ -158,27 +219,40 @@
             <!-- CỘT PHẢI (NỘI DUNG CHÍNH NỀN TRẮNG) -->
             <div class="col-md-8 col-12 cv-main-content">
                 
-                <!-- KINH NGHIỆM / DỰ ÁN -->
+                <!-- KINH NGHIỆM / DỰ ÁN (Có Timeline Node thanh lịch) -->
                 <section class="main-section">
                     <div class="section-heading">
                         <i class="fas fa-briefcase"></i> Kinh nghiệm / Dự án
                     </div>
 
-                                            <div class="job-item">
+                                            <div class="timeline-item">
+                            <div class="timeline-dot"></div>
                             <div class="job-title">
                                 Lập trình viên Web (Full-stack)                            </div>
-                            <div class="job-meta d-flex flex-wrap justify-content-between align-items-center mb-2">
+                            <div class="job-meta">
                                 <span class="company-name">Dự án cá nhân - Website Bán Nông Sản Sơn La</span>
-                                <span class="job-date">2025-08 : 2026-09</span>
+                                <span class="job-date-badge">2025-08 : 2026-09</span>
                             </div>
                             <div class="job-details">
-                                                                    <p class="detail-paragraph">Thiết kế và phát triển website thương mại điện tử chuyên giới thiệu, tiêu thụ nông sản và đặc sản Sơn La (mận hậu Mộc Châu, xoài Yên Châu, nhãn Sông Mã, chè, thịt gác bếp,...).</p>
-                                                                    <p class="detail-paragraph">Phân tích, chuẩn hóa cơ sở dữ liệu quan hệ (MySQL) quản lý danh mục đặc sản theo mùa vụ, dữ liệu người dùng và đơn đặt hàng.</p>
-                                                                    <p class="detail-paragraph">Xây dựng các chức năng cốt lõi: tìm kiếm, lọc nông sản theo phân loại/giá, giỏ hàng trực tuyến và trang quản trị (Admin Dashboard) theo dõi đơn hàng, quản lý kho.</p>
-                                                                    <p class="detail-paragraph">Triển khai bảo mật hệ thống: sử dụng PHP Data Objects (PDO) với Prepared Statements để ngăn chặn triệt để lỗ hổng SQL Injection; áp dụng cơ chế băm mật khẩu an toàn (Bcrypt/Argon2) và xác thực, phân quyền người dùng qua JWT (JSON Web Tokens) / Session bảo mật.</p>
-                                                                    <p class="detail-paragraph">Thiết kế giao diện Responsive tương thích mượt mà trên cả máy tính và thiết bị di động.</p>
-                                                                    <p class="detail-paragraph">Công nghệ sử dụng: PHP, MySQL, JavaScript, HTML5, CSS3, Bootstrap, XAMPP, PDO, JWT.</p>
-                                                            </div>
+                                                                                                            <p class="detail-paragraph">Thiết kế và phát triển website thương mại điện tử chuyên giới thiệu, tiêu thụ nông sản và đặc sản Sơn La (mận hậu Mộc Châu, xoài Yên Châu, nhãn Sông Mã, chè, thịt gác bếp,...).</p>
+                                                                                                                                                <p class="detail-paragraph">Phân tích, chuẩn hóa cơ sở dữ liệu quan hệ (MySQL) quản lý danh mục đặc sản theo mùa vụ, dữ liệu người dùng và đơn đặt hàng.</p>
+                                                                                                                                                <p class="detail-paragraph">Xây dựng các chức năng cốt lõi: tìm kiếm, lọc nông sản theo phân loại/giá, giỏ hàng trực tuyến và trang quản trị (Admin Dashboard) theo dõi đơn hàng, quản lý kho.</p>
+                                                                                                                                                <p class="detail-paragraph">Triển khai bảo mật hệ thống: sử dụng PHP Data Objects (PDO) với Prepared Statements để ngăn chặn triệt để lỗ hổng SQL Injection; áp dụng cơ chế băm mật khẩu an toàn (Bcrypt/Argon2) và xác thực, phân quyền người dùng qua JWT (JSON Web Tokens) / Session bảo mật.</p>
+                                                                                                                                                <p class="detail-paragraph">Thiết kế giao diện Responsive tương thích mượt mà trên cả máy tính và thiết bị di động.</p>
+                                                                                                                                                <!-- Tách dàn công nghệ thành các badge riêng ở cuối card -->
+                                        <div class="project-tech-tags">
+                                            <span class="project-tech-label">Công nghệ sử dụng:</span>
+                                                                                            <span class="project-tech-badge">PHP</span>
+                                                                                            <span class="project-tech-badge">MySQL</span>
+                                                                                            <span class="project-tech-badge">JavaScript</span>
+                                                                                            <span class="project-tech-badge">HTML5</span>
+                                                                                            <span class="project-tech-badge">CSS3</span>
+                                                                                            <span class="project-tech-badge">Bootstrap</span>
+                                                                                            <span class="project-tech-badge">XAMPP</span>
+                                                                                            <span class="project-tech-badge">PDO</span>
+                                                                                            <span class="project-tech-badge">JWT</span>
+                                                                                    </div>
+                                                                                                </div>
                         </div>
                                     </section>
 
@@ -190,39 +264,40 @@
                         <i class="fas fa-graduation-cap"></i> Học vấn
                     </div>
 
-                                            <div class="job-item">
+                                            <div class="education-box">
                             <div class="job-title">
                                 Khoa học tự nhiên - Công nghệ                            </div>
-                            <div class="job-meta d-flex flex-wrap justify-content-between align-items-center mb-2">
+                            <div class="job-meta">
                                 <span class="company-name">Trường Đại học Tây Bắc</span>
-                                <span class="job-date">2023-08 : 2027-08</span>
+                                <span class="job-date-badge">2023-08 : 2027-08</span>
                             </div>
                             <div class="job-details">
-                                <p class="gpa-text fw-bold text-dark mb-2">GPA: 2.89/4.0 (7.52/10) – Xếp loại Khá</p>
+                                <div class="gpa-badge">
+                                    <i class="fas fa-award me-1"></i> GPA: 2.89/4.0 (7.52/10) – Xếp loại Khá                                </div>
                                 
-                                <div class="course-group mb-2">
+                                <div class="course-group mb-3">
                                     <span class="course-heading fw-bold">Các môn chuyên ngành nổi bật:</span>
-                                    <ul class="course-list">
-                                                                                    <li>Lập trình ứng dụng Web</li>
-                                                                                    <li>Hệ quản trị Cơ sở dữ liệu</li>
-                                                                                    <li>Lập trình mạng</li>
-                                                                                    <li>Nguyên lý hệ điều hành</li>
-                                                                                    <li>Hệ điều hành Linux</li>
-                                                                                    <li>Thương mại điện tử</li>
-                                                                            </ul>
+                                    <div class="course-tags-container">
+                                                                                    <span class="course-tag">Lập trình ứng dụng Web</span>
+                                                                                    <span class="course-tag">Hệ quản trị Cơ sở dữ liệu</span>
+                                                                                    <span class="course-tag">Lập trình mạng</span>
+                                                                                    <span class="course-tag">Nguyên lý hệ điều hành</span>
+                                                                                    <span class="course-tag">Hệ điều hành Linux</span>
+                                                                                    <span class="course-tag">Thương mại điện tử</span>
+                                                                            </div>
                                 </div>
 
                                 <div class="course-group">
                                     <span class="course-heading fw-bold">Các môn nền tảng:</span>
-                                    <ul class="course-list">
-                                                                                    <li>Cấu trúc dữ liệu &amp; Giải thuật</li>
-                                                                                    <li>Thiết kế Web</li>
-                                                                                    <li>Cơ sở dữ liệu</li>
-                                                                                    <li>Lập trình hướng đối tượng (OOP)</li>
-                                                                                    <li>Lập trình .NET</li>
-                                                                                    <li>Lập trình di động</li>
-                                                                                    <li>Trí tuệ nhân tạo</li>
-                                                                            </ul>
+                                    <div class="course-tags-container">
+                                                                                    <span class="course-tag">Cấu trúc dữ liệu &amp; Giải thuật</span>
+                                                                                    <span class="course-tag">Thiết kế Web</span>
+                                                                                    <span class="course-tag">Cơ sở dữ liệu</span>
+                                                                                    <span class="course-tag">Lập trình hướng đối tượng (OOP)</span>
+                                                                                    <span class="course-tag">Lập trình .NET</span>
+                                                                                    <span class="course-tag">Lập trình di động</span>
+                                                                                    <span class="course-tag">Trí tuệ nhân tạo</span>
+                                                                            </div>
                                 </div>
                             </div>
                         </div>
@@ -239,19 +314,19 @@
                     <div class="interests-grid row g-2">
                                                     <div class="col-md-4 col-sm-6 col-12">
                                 <div class="interest-card">
-                                    <i class="fas fa-check-circle me-1 text-primary"></i>
+                                    <i class="fas fa-check-circle me-2"></i>
                                     <span>Nghe nhạc</span>
                                 </div>
                             </div>
                                                     <div class="col-md-4 col-sm-6 col-12">
                                 <div class="interest-card">
-                                    <i class="fas fa-check-circle me-1 text-primary"></i>
+                                    <i class="fas fa-check-circle me-2"></i>
                                     <span>Thể thao</span>
                                 </div>
                             </div>
                                                     <div class="col-md-4 col-sm-6 col-12">
                                 <div class="interest-card">
-                                    <i class="fas fa-check-circle me-1 text-primary"></i>
+                                    <i class="fas fa-check-circle me-2"></i>
                                     <span>Tìm hiểu công nghệ mới, khám phá các công cụ hỗ trợ lập trình</span>
                                 </div>
                             </div>

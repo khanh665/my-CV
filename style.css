@@ -1,20 +1,26 @@
 /* ==========================================================================
-   CV ONLINE STYLESHEET
-   Phong cách chuẩn bám sát mẫu CV MindLuster
+   CV ONLINE STYLESHEET (BẢN NÂNG CẤP HIỆN ĐẠI & TINH TẾ)
+   Giữ nguyên nhận diện màu sắc: Vàng #ffc800, Đen than #222323, Xanh #3190e2
    ========================================================================== */
 
 :root {
-    --cv-bg-outer: #f0f2f5;
+    --cv-bg-outer: #f1f3f6;
     --cv-dark: #222323;
+    --cv-dark-sidebar: #1f2022;
+    --cv-sidebar-block: rgba(255, 255, 255, 0.03);
+    --cv-sidebar-border: rgba(255, 255, 255, 0.07);
     --cv-yellow: #ffc800;
-    --cv-yellow-border: #fec802;
+    --cv-yellow-accent: #fec802;
     --cv-blue: #3190e2;
-    --cv-blue-brand: #2371b5;
-    --cv-gray-contact: #5f5f5f;
-    --cv-gray-lang: #404040;
-    --cv-heading-gray: #505050;
-    --cv-text-body: #424242;
-    --cv-font: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --cv-blue-brand: #1e6cb0;
+    --cv-heading-gray: #44474a;
+    --cv-text-body: #3c4043;
+    --cv-text-muted: #64748b;
+    --cv-font: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -23,40 +29,97 @@ body {
     color: var(--cv-text-body);
     margin: 0;
     padding: 0;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
 /* --------------------------------------------------------------------------
-   Top Action Bar (Thanh công cụ in ấn / tải xuống)
+   Thanh công cụ phía trên (Top Action Bar - Tinh gọn & Hiện đại)
    -------------------------------------------------------------------------- */
 .top-action-bar {
-    padding: 15px 0 5px;
+    padding: 16px 0 10px;
+}
+
+.action-bar-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: 30px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .btn-cv-action {
-    background-color: #4d5c7d;
-    color: #ffffff !important;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 20px;
-    border-radius: 6px;
-    border: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    transition: all 0.25s ease-in-out;
+    background-color: #f1f5f9;
+    color: #334155 !important;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
+    transition: all 0.22s ease-in-out;
+    cursor: pointer;
 }
 
 .btn-cv-action:hover {
-    background-color: #354465;
+    background-color: #334155;
     color: #ffffff !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    border-color: #334155;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(51, 65, 85, 0.2);
+}
+
+.btn-cv-primary {
+    background-color: #222323;
+    color: #ffffff !important;
+    border-color: #222323;
+}
+
+.btn-cv-primary:hover {
+    background-color: #000000;
+    color: #fec802 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Toast thông báo sao chép nhỏ gọn */
+.copy-toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(30px);
+    background: #1e293b;
+    color: #ffffff;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 9px 18px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 9999;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.copy-toast i {
+    color: #22c55e;
 }
 
 /* --------------------------------------------------------------------------
-   CV Wrapper & Layout Khổ giấy
+   CV Wrapper & Khung trang giấy A4
    -------------------------------------------------------------------------- */
 .cv-wrapper {
     max-width: 980px;
@@ -66,30 +129,50 @@ body {
 
 .cv-paper {
     background-color: #ffffff;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
-    border-radius: 4px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: cvFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cvFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --------------------------------------------------------------------------
-   Phần 1: Top Header (Avatar & Bản tóm tắt)
+   PHẦN 1: Top Header (Avatar & Bản tóm tắt)
    -------------------------------------------------------------------------- */
 .cv-top-header {
     background-color: #ffffff;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #f1f3f5;
 }
 
 .person-cover {
     width: 170px;
     height: 170px;
     margin: 0 auto;
-    border: 5px solid #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    border-radius: 14px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    background-color: #e9ecef;
+    background-color: #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.person-cover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
 }
 
 .person-img {
@@ -103,21 +186,22 @@ body {
     font-size: 20px;
     font-weight: 700;
     color: #304354;
-    border-bottom: 4px solid var(--cv-blue);
+    border-bottom: 3.5px solid var(--cv-blue);
     display: inline-block;
     padding-bottom: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    letter-spacing: 0.2px;
 }
 
 .summary-text {
-    font-size: 15px;
-    line-height: 1.65;
-    color: #333333;
-    text-align: justify;
+    font-size: 14.5px;
+    line-height: 1.68;
+    color: #334155;
+    text-align: left;
 }
 
 /* --------------------------------------------------------------------------
-   Phần 2: Name Bar (Thanh chức danh & Tên)
+   PHẦN 2: Name Bar (Thanh Chức danh & Họ tên)
    -------------------------------------------------------------------------- */
 .name-bar {
     background-color: var(--cv-yellow);
@@ -127,15 +211,16 @@ body {
 .job-header {
     background-color: var(--cv-dark);
     color: #ffffff;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 600;
-    padding: 18px 30px;
+    padding: 16px 28px;
     white-space: nowrap;
     border-right: 4px solid var(--cv-yellow);
+    letter-spacing: 0.3px;
 }
 
 .name-box {
-    padding: 16px 30px;
+    padding: 14px 28px;
 }
 
 .name-text {
@@ -143,11 +228,11 @@ body {
     font-size: 26px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
 }
 
 /* --------------------------------------------------------------------------
-   Phần 3: Cột Trái (Sidebar màu tối)
+   PHẦN 3: Cột Trái (Sidebar tối màu liền mạch)
    -------------------------------------------------------------------------- */
 .cv-sidebar {
     background-color: var(--cv-dark);
@@ -157,31 +242,24 @@ body {
 }
 
 .sidebar-block {
-    padding: 24px;
+    padding: 22px;
+    border-bottom: 1px solid var(--cv-sidebar-border);
 }
 
-.block-contacts {
-    background-color: var(--cv-gray-contact);
-}
-
-.block-languages {
-    background-color: var(--cv-gray-lang);
-}
-
-.block-tech-skills,
-.block-soft-skills {
-    background-color: var(--cv-dark);
+.sidebar-block:last-child {
+    border-bottom: none;
 }
 
 .sidebar-heading {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     color: #ffffff;
-    border-bottom: 4px solid var(--cv-yellow-border);
+    border-bottom: 3.5px solid var(--cv-yellow-accent);
     display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 18px;
+    padding-bottom: 4px;
+    margin-bottom: 16px;
     line-height: 1.2;
+    letter-spacing: 0.3px;
 }
 
 /* Danh sách liên hệ */
@@ -191,21 +269,32 @@ body {
     margin: 0;
 }
 
-.contact-list li {
+.contact-item {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 12px;
-    font-size: 15px;
-    line-height: 1.4;
-    color: #ffffff;
+    align-items: center;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #f1f5f9;
+    transition: background 0.18s ease;
+}
+
+.contact-item.clickable {
+    cursor: pointer;
+}
+
+.contact-item.clickable:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .contact-icon {
-    width: 26px;
-    font-size: 16px;
-    color: var(--cv-yellow-border);
-    margin-top: 2px;
+    width: 24px;
+    font-size: 15px;
+    color: var(--cv-yellow-accent);
+    margin-right: 10px;
     flex-shrink: 0;
+    text-align: center;
 }
 
 .contact-value {
@@ -214,107 +303,254 @@ body {
 }
 
 .contact-value a {
-    color: #ffffff;
+    color: #f1f5f9;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.18s ease;
 }
 
-.contact-value a:hover {
-    color: var(--cv-yellow-border);
-    text-decoration: underline;
+.contact-item.clickable:hover .contact-value a {
+    color: var(--cv-yellow-accent);
 }
 
-/* Danh sách kỹ năng & ngôn ngữ */
-.simple-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.contact-copy-badge {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-left: 6px;
+    opacity: 0;
+    transition: opacity 0.18s ease;
 }
 
-.simple-list li {
-    margin-bottom: 10px;
-    font-size: 14.5px;
-    line-height: 1.55;
-    color: #f5f5f5;
+.contact-item.clickable:hover .contact-copy-badge {
+    opacity: 1;
+    color: var(--cv-yellow-accent);
+}
+
+/* Danh sách kỹ năng dạng Badge/Chip trung tính */
+.skill-category {
+    margin-bottom: 14px;
+}
+
+.skill-category:last-child {
+    margin-bottom: 0;
+}
+
+.skill-cat-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.skill-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.skill-chip {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.07);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    transition: all 0.18s ease-in-out;
+}
+
+.skill-chip:hover {
+    background: rgba(254, 200, 2, 0.14);
+    border-color: var(--cv-yellow-accent);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Kỹ năng mềm & Ngôn ngữ */
+.soft-skill-chip {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f1f5f9;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    transition: all 0.18s ease;
+}
+
+.soft-skill-chip:hover {
+    background: rgba(254, 200, 2, 0.14);
+    border-color: var(--cv-yellow-accent);
+    color: #ffffff;
+}
+
+.soft-skill-chip i {
+    font-size: 10px;
+    color: var(--cv-yellow-accent);
+    margin-right: 6px;
 }
 
 /* --------------------------------------------------------------------------
-   Phần 4: Cột Phải (Nội dung chính)
+   PHẦN 4: Cột Phải (Nội dung chính nền trắng)
    -------------------------------------------------------------------------- */
 .cv-main-content {
     background-color: #ffffff;
-    padding: 30px 35px;
+    padding: 28px 34px;
 }
 
 .main-section {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .section-heading {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 700;
     color: var(--cv-heading-gray);
-    border-bottom: 4px solid var(--cv-blue);
+    border-bottom: 3.5px solid var(--cv-blue);
     display: inline-block;
-    padding-bottom: 6px;
-    margin-bottom: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 18px;
+    letter-spacing: 0.2px;
 }
 
 .section-heading i {
     color: var(--cv-blue);
-    margin-right: 6px;
+    margin-right: 8px;
 }
 
-.job-item {
-    margin-bottom: 20px;
+/* Timeline thanh lịch cho Kinh nghiệm / Dự án */
+.timeline-item {
+    position: relative;
+    padding-left: 24px;
+    border-left: 2px solid #e2e8f0;
+    margin-left: 6px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s ease;
+}
+
+.timeline-item:hover {
+    border-left-color: var(--cv-blue);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2.5px solid var(--cv-blue);
+    transition: all 0.2s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    background-color: var(--cv-blue);
+    transform: scale(1.2);
 }
 
 .job-title {
-    font-size: 17px;
+    font-size: 16.5px;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--cv-dark);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .company-name {
     color: var(--cv-blue-brand);
     font-weight: 700;
-    font-size: 15.5px;
+    font-size: 15px;
 }
 
-.job-date {
-    color: #585858;
-    font-size: 15px;
-    font-weight: 500;
+.job-date-badge {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
 }
 
 .job-details {
-    font-size: 14.5px;
+    font-size: 14px;
     color: var(--cv-text-body);
-    line-height: 1.65;
-    margin-top: 10px;
+    line-height: 1.68;
 }
 
 .detail-paragraph {
-    margin-bottom: 10px;
-    text-align: justify;
+    margin-bottom: 9px;
+    text-align: left;
 }
 
 .detail-paragraph:last-child {
     margin-bottom: 0;
 }
 
+/* Dải Tag công nghệ dự án */
+.project-tech-tags {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed #e2e8f0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.project-tech-label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #475569;
+    margin-right: 4px;
+}
+
+.project-tech-badge {
+    font-size: 12px;
+    background: #f8fafc;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
 .section-divider {
-    border-top: 1px solid #dcdcdc;
-    margin: 25px 0;
-    opacity: 0.7;
+    border-top: 1px solid #e2e8f0;
+    margin: 22px 0;
+    opacity: 0.8;
 }
 
 /* Học vấn */
-.gpa-text {
-    font-size: 15px;
-    color: #222323;
+.education-box {
+    margin-bottom: 10px;
+}
+
+.gpa-badge {
+    display: inline-block;
+    background-color: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 .course-group {
@@ -323,31 +559,45 @@ body {
 
 .course-heading {
     display: block;
-    color: #333333;
-    margin-bottom: 4px;
+    color: #1e293b;
+    font-size: 13.5px;
+    margin-bottom: 5px;
 }
 
-.course-list {
-    margin: 0;
-    padding-left: 20px;
+.course-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
-.course-list li {
-    margin-bottom: 3px;
-    font-size: 14px;
+.course-tag {
+    background: #f8fafc;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    font-size: 12.5px;
+    padding: 2.5px 8px;
+    border-radius: 4px;
 }
 
 /* Sở thích */
 .interest-card {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 6px;
-    padding: 10px 14px;
-    font-size: 14px;
-    color: #333333;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    color: #334155;
     display: flex;
     align-items: center;
     height: 100%;
+    transition: all 0.2s ease;
+}
+
+.interest-card:hover {
+    background-color: #ffffff;
+    border-color: var(--cv-blue);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
 }
 
 .interest-card i {
@@ -356,7 +606,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Responsive Media Queries (Điện thoại & Máy tính bảng)
+   Responsive Media Queries (Thiết bị di động & Tablet)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
     .cv-wrapper {
@@ -365,7 +615,7 @@ body {
     }
 
     .person-cover {
-        margin-top: 10px;
+        margin-top: 8px;
     }
 
     .job-header {
@@ -373,14 +623,14 @@ body {
         border-bottom: 3px solid var(--cv-yellow);
         text-align: center;
         justify-content: center;
-        padding: 14px 20px;
-        font-size: 18px;
+        padding: 12px 18px;
+        font-size: 17px;
     }
 
     .name-box {
         text-align: center;
         justify-content: center;
-        padding: 12px 20px;
+        padding: 10px 18px;
     }
 
     .name-text {
@@ -393,12 +643,18 @@ body {
     }
 
     .cv-main-content {
-        padding: 24px 20px;
+        padding: 22px 16px;
+    }
+
+    .action-bar-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 12px;
     }
 }
 
 /* --------------------------------------------------------------------------
-   Chế độ In ấn (Print Styles - Xuất file PDF chuẩn A4 đẹp mắt)
+   Chế độ In ấn (Bảo vệ tuyệt đối khổ A4 - Hoàn toàn không in animation)
    -------------------------------------------------------------------------- */
 @media print {
     body {
@@ -407,7 +663,8 @@ body {
         print-color-adjust: exact !important;
     }
 
-    .no-print {
+    .no-print,
+    .copy-toast {
         display: none !important;
     }
 
@@ -420,6 +677,8 @@ body {
     .cv-paper {
         box-shadow: none !important;
         border-radius: 0 !important;
+        border: none !important;
+        animation: none !important;
     }
 
     .cv-body-row {
@@ -431,6 +690,7 @@ body {
         width: 33.333333% !important;
         float: left !important;
         border-right: 2px solid #b0bdca !important;
+        background-color: #222323 !important;
     }
 
     .cv-main-content {
@@ -451,8 +711,16 @@ body {
         width: 65% !important;
     }
 
+    .timeline-item {
+        border-left: 2px solid #cbd5e1 !important;
+    }
+
+    .timeline-dot {
+        border-color: #3190e2 !important;
+    }
+
     @page {
         size: A4 portrait;
-        margin: 8mm 5mm;
+        margin: 8mm 6mm;
     }
 }
